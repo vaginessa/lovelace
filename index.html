@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div id="search">
+        <input id="search-field" type="text" name="search-field" onkeypress="return search(event)"/>
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        <div class="welcome-container">
+            <div class="row">
+                <div id="welcome-description"class="inline"></div>
+                <div class="inline"> Welcome user</div>
+                <div id="temp" class="inline"></div>
+            </div>
+        </div>
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title">Daily</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://myanimelist.net/" target="_blank">MyAnimeList</a>
+                    <a class="bookmark" href="https://twitter.com/" target="_blank">Twitter</a>
+                    <a class="bookmark" href="https://discordapp.com/channels/@me" target="_blank">Discord</a>
+                    <a class="bookmark" href="https://www.youtube.com/feed/subscriptions" target="_blank">Youtube</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+            <div class="bookmark-title">Anime</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://nyaa.si/" target="_blank">Nyaa</a>
+                    <a class="bookmark" href="https://twist.moe/" target="_blank">Twist Anime</a>
+                    <a class="bookmark" href="https://mangadex.org/" target="_blank">MangaDex</a>
+                    <a class="bookmark" href="https://dynasty-scans.com/" target="_blank">Dynasty Scans</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Media</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://www.pixiv.net/en/" target="_blank">Pixiv</a>
+                    <a class="bookmark" href="https://www.deviantart.com/ninryu" target="_blank">DeviantArt</a>
+                    <a class="bookmark" href="https://player.fm/ninryu/subs" target="_blank">Player.fm</a>
+                    <a class="bookmark" href="https://soundcloud.com/stream" target="_blank">Soundcloud</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get current time and format
+        function getTime() {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return "" + 
+                (hour < 10 ? ("0" + hour) : hour) + ":" + 
+                (min < 10 ? ("0" + min) : min);
+        }
+
+        window.onload = () => {
+            // Set up the clock
+            document.getElementById("clock").innerHTML = getTime();
+            // Set clock interval to tick clock
+            setInterval( () => {
+                document.getElementById("clock").innerHTML = getTime();
+            },100);
+        }
+    </script>
+</body>
+</html>
